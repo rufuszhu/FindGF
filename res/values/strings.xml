@@ -4,5 +4,10 @@
     <string name="app_name">FindMyGF</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="progress_message">Signing in to Google&#8230;</string>
+	
+	<string name="loading_status">Loading…</string>
+    <string name="signing_in_status">Signing in with Google+.</string>
+    <string name="signed_in_status">Signed in.</string>
+    <string name="signed_out_status">Signed out.</string>
 </resources>

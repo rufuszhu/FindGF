@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="13"
         android:targetSdkVersion="17" />
     <!-- So that we can get the account name -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -13,8 +13,8 @@
     <!-- Used to request data from the Google+ APIs in the SignInActivity -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--  Required if we need to invalidate access tokens -->
-    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <!-- Required if we need to invalidate access tokens -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +29,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.findmygf.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
     </application>
 
