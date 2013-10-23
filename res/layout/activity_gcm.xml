@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+ 
+    <TextView
+        android:id="@+id/tv_reg_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registry_status"
+        />
+     <TextView
+        android:id="@+id/tv_reg_status_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registry_status_result"
+        />
+ 
+         <TextView
+        android:id="@+id/tv_message_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/broadcast_label"
+        tools:context=".MainActivity" />
+      
+        
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/broadcast_result"
+        tools:context=".MainActivity" />
+ 
+</LinearLayout>
