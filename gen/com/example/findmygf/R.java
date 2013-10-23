@@ -8,6 +8,9 @@
 package com.example.findmygf;
 
 public final class R {
+    public static final class array {
+        public static final int layers_array=0x7f080000;
+    }
     public static final class attr {
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
@@ -182,44 +185,96 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020018;
     }
     public static final class id {
-        public static final int action_forgot_password=0x7f05000c;
-        public static final int action_settings=0x7f05000d;
-        public static final int email=0x7f050008;
+        public static final int action_forgot_password=0x7f050024;
+        public static final int action_settings=0x7f050025;
+        public static final int address=0x7f05000e;
+        public static final int address_progress=0x7f05000d;
+        public static final int bn_clear=0x7f05001f;
+        public static final int bn_post=0x7f05001e;
+        public static final int bn_retrieve=0x7f05001d;
+        public static final int email=0x7f05001c;
+        public static final int first_name=0x7f05001a;
+        public static final int get_address_button=0x7f050013;
+        public static final int get_location_button=0x7f050011;
         public static final int hybrid=0x7f050004;
-        public static final int login=0x7f05000a;
-        public static final int login_form=0x7f050007;
-        public static final int login_status=0x7f050005;
-        public static final int login_status_message=0x7f050006;
+        public static final int label_address=0x7f05000c;
+        public static final int label_lat_lng=0x7f05000a;
+        public static final int last_name=0x7f05001b;
+        public static final int lat_lng=0x7f05000b;
+        public static final int layers_spinner=0x7f050021;
+        public static final int main_layout=0x7f050009;
+        public static final int map=0x7f050020;
+        public static final int my_location=0x7f050023;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int password=0x7f050009;
+        public static final int revoke_access_button=0x7f050017;
         public static final int satellite=0x7f050002;
-        public static final int sign_in_button=0x7f05000b;
+        public static final int sign_in_button=0x7f050015;
+        public static final int sign_in_status=0x7f050018;
+        public static final int sign_out_button=0x7f050016;
+        public static final int start_updates=0x7f050012;
+        public static final int stop_updates=0x7f050014;
+        public static final int tableLayout1=0x7f050019;
         public static final int terrain=0x7f050003;
+        public static final int text_connection_state=0x7f050010;
+        public static final int text_connection_status=0x7f05000f;
+        public static final int traffic=0x7f050022;
+        public static final int tv_message=0x7f050008;
+        public static final int tv_message_label=0x7f050007;
+        public static final int tv_reg_status=0x7f050005;
+        public static final int tv_reg_status_result=0x7f050006;
     }
     public static final class layout {
-        public static final int activity_login=0x7f030000;
-        public static final int activity_main=0x7f030001;
+        public static final int activity_gcm=0x7f030000;
+        public static final int activity_location=0x7f030001;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_post=0x7f030004;
+        public static final int layers_demo=0x7f030005;
     }
     public static final class menu {
-        public static final int login=0x7f090000;
-        public static final int main=0x7f090001;
+        public static final int login=0x7f0a0000;
+        public static final int main=0x7f0a0001;
     }
     public static final class string {
-        public static final int action_forgot_password=0x7f06001e;
-        public static final int action_settings=0x7f060016;
-        public static final int action_sign_in_register=0x7f06001c;
-        public static final int action_sign_in_short=0x7f06001d;
-        public static final int app_name=0x7f060015;
-        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
+        public static final int IO_Exception_getFromLocation=0x7f060053;
+        public static final int action_forgot_password=0x7f06006d;
+        /**  Menu title 
          */
-        public static final int auth_client_availability_notification_title=0x7f06000f;
+        public static final int action_settings=0x7f060024;
+        public static final int action_sign_in_register=0x7f06006b;
+        public static final int action_sign_in_short=0x7f06006c;
+        public static final int address=0x7f060049;
+        /**  Address format 
+         */
+        public static final int address_output_string=0x7f060046;
+        public static final int app_name=0x7f060023;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        enabled for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_enabling_title=0x7f060010;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        installed for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_installation_title=0x7f060011;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        udpated for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_update_title=0x7f060012;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f060010;
+        public static final int auth_client_play_services_err_notification_msg=0x7f060013;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f060011;
+        public static final int auth_client_requested_by_msg=0x7f060014;
+        /**   Title for notification shown when a bad version of GooglePlayServices
+        has been installed and needs correction for an application to work.
+        [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_using_bad_version_title=0x7f06000f;
+        public static final int broadcast_label=0x7f060044;
+        public static final int broadcast_result=0x7f060045;
+        public static final int clear=0x7f06003e;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -275,29 +330,97 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06000e;
-        public static final int error_field_required=0x7f060023;
-        public static final int error_incorrect_password=0x7f060022;
-        public static final int error_invalid_email=0x7f060020;
-        public static final int error_invalid_password=0x7f060021;
-        public static final int hello_world=0x7f060017;
-        /**  Location client code resources (prefix with location_client) 
-
-        Begin strings for location.reporting
-    
-
-        Some InactiveReason names.  See more in OneUp/package/location/res/values/strings.xml
-    
+        /**  Messages 
          */
-        public static final int location_client_ulr_inactive_age_under_13=0x7f060012;
-        public static final int location_client_ulr_inactive_age_unknown=0x7f060013;
-        public static final int location_client_ulr_inactive_unknown_restriction=0x7f060014;
-        public static final int login_progress_signing_in=0x7f06001f;
-        public static final int progress_message=0x7f060018;
+        public static final int connected=0x7f06004a;
+        public static final int connection_error_code=0x7f060015;
+        public static final int connection_error_code_unknown=0x7f06004b;
+        public static final int connection_error_disabled=0x7f060016;
+        public static final int connection_error_internal=0x7f060017;
+        public static final int connection_error_invalid=0x7f060018;
+        public static final int connection_error_invalid_account=0x7f060019;
+        public static final int connection_error_license_check_failed=0x7f06001a;
+        public static final int connection_error_message=0x7f06001b;
+        public static final int connection_error_misconfigured=0x7f06001c;
+        public static final int connection_error_missing=0x7f06001d;
+        public static final int connection_error_needs_resolution=0x7f06001e;
+        public static final int connection_error_network=0x7f06001f;
+        public static final int connection_error_outdated=0x7f060020;
+        public static final int connection_error_sign_in_required=0x7f060021;
+        public static final int connection_error_unknown=0x7f060022;
+        public static final int connection_failed=0x7f06004c;
+        public static final int default_status=0x7f060027;
+        public static final int disconnected=0x7f06004d;
+        public static final int email=0x7f06003b;
+        public static final int error_field_required=0x7f060072;
+        public static final int error_incorrect_password=0x7f060071;
+        public static final int error_invalid_email=0x7f06006f;
+        public static final int error_invalid_password=0x7f060070;
+        public static final int firstName=0x7f060039;
+        public static final int get_address=0x7f06004e;
+        public static final int get_location=0x7f06004f;
+        public static final int greeting_status=0x7f060028;
+        public static final int greeting_status_error=0x7f06002a;
+        public static final int greeting_status_sign_in_required=0x7f060029;
+        public static final int hello_world=0x7f060025;
+        public static final int hybrid=0x7f060034;
+        public static final int illegal_argument_exception=0x7f060050;
+        public static final int invalid_action=0x7f060051;
+        public static final int invalid_integer_id=0x7f060052;
+        public static final int lastName=0x7f06003a;
+        /**  Latitude, longitude format 
+         */
+        public static final int latitude_longitude=0x7f060047;
+        /**  Labels 
+         */
+        public static final int latlng=0x7f060048;
+        public static final int loading_status=0x7f06002b;
+        public static final int location_requested=0x7f060054;
+        public static final int location_update_error=0x7f060056;
+        public static final int location_update_error_detail=0x7f060057;
+        public static final int location_update_missing_update=0x7f060058;
+        public static final int location_updated=0x7f060055;
+        public static final int location_updates_stopped=0x7f060059;
+        public static final int log_new_location=0x7f06005a;
+        public static final int login_progress_signing_in=0x7f06006e;
+        public static final int map=0x7f060038;
+        public static final int map_not_ready=0x7f060037;
+        public static final int menu_settings=0x7f06003f;
+        public static final int my_location=0x7f060032;
+        public static final int no_address_found=0x7f06005b;
+        public static final int no_connection=0x7f06005c;
+        public static final int no_geocoder_available=0x7f06005d;
+        public static final int no_location_available=0x7f06005e;
+        public static final int no_resolution=0x7f060060;
+        public static final int normal=0x7f060033;
+        public static final int periodic_update_stop=0x7f060061;
+        public static final int play_services_available=0x7f060062;
+        public static final int post=0x7f06003d;
+        public static final int progress_message=0x7f060026;
         /**  Strings related to login 
          */
-        public static final int prompt_email=0x7f06001a;
-        public static final int prompt_password=0x7f06001b;
-        public static final int title_activity_login=0x7f060019;
+        public static final int prompt_email=0x7f060069;
+        public static final int prompt_password=0x7f06006a;
+        public static final int register=0x7f060041;
+        public static final int registry_status=0x7f060042;
+        public static final int registry_status_result=0x7f060043;
+        public static final int request_location_updates_in_progress=0x7f060063;
+        public static final int resolved=0x7f06005f;
+        public static final int retrieve=0x7f06003c;
+        public static final int revoke_access_button_name=0x7f060030;
+        public static final int satellite=0x7f060035;
+        public static final int sign_out_button_name=0x7f06002f;
+        public static final int signed_in_status=0x7f06002d;
+        public static final int signed_out_status=0x7f06002e;
+        public static final int signing_in_status=0x7f06002c;
+        public static final int start_updates=0x7f060064;
+        public static final int stop_updates=0x7f060065;
+        public static final int terrain=0x7f060036;
+        public static final int title_activity_login=0x7f060068;
+        public static final int title_activity_main=0x7f060040;
+        public static final int traffic=0x7f060031;
+        public static final int unknown=0x7f060066;
+        public static final int unknown_activity_request_code=0x7f060067;
     }
     public static final class style {
         /** 
@@ -323,12 +446,12 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int LoginFormContainer=0x7f080002;
+        public static final int AppTheme=0x7f090001;
+        public static final int LoginFormContainer=0x7f090002;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
