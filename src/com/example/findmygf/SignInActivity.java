@@ -3,6 +3,9 @@ package com.example.findmygf;
 import com.google.android.gms.plus.PlusClient;
 import com.google.android.gms.plus.model.people.Person;
 import com.example.findmygf.PlusClientFragment.OnSignedInListener;
+import com.example.rest.WebServiceTask;
+import com.example.user.CurrentUser;
+import com.example.user.CurrentUserManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ public class SignInActivity extends FragmentActivity
 
     private TextView mSignInStatus;
     private PlusClientFragment mSignInFragment;
+    private static final String SERVICE_URL = "http://my-gf-server.appspot.com/resources/person";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +48,7 @@ public class SignInActivity extends FragmentActivity
                 break;
             case R.id.sign_in_button:
                 mSignInFragment.signIn(REQUEST_CODE_PLUS_CLIENT_FRAGMENT);
-                Intent i = new Intent(getApplicationContext(),
-                		postActivity.class);
-				startActivity(i);
+                
                 break;
             case R.id.revoke_access_button:
                 resetAccountState();
@@ -67,8 +69,12 @@ public class SignInActivity extends FragmentActivity
         // We can now obtain the signed-in user's profile information.
         Person currentPerson = plusClient.getCurrentPerson();
         if (currentPerson != null) {
-            String greeting = getString(R.string.greeting_status, currentPerson.getDisplayName());
+            String greeting = getString(R.string.greeting_status, currentPerson.getDisplayName());            
             mSignInStatus.setText(greeting);
+            sendPersonToServer(currentPerson, "Vancouver", "Canada", "sylvialoverufus@gmail.com","rufus.zhu@hotmail.com", "Male");
+            Intent i = new Intent(getApplicationContext(),
+            		postActivity.class);
+			startActivity(i);
         } else {
             resetAccountState();
         }
@@ -76,5 +82,23 @@ public class SignInActivity extends FragmentActivity
 
     private void resetAccountState() {
         mSignInStatus.setText(getString(R.string.signed_out_status));
+    }
+    
+    private void sendPersonToServer(Person person, String city, String country, String partner_email, String email, String gender ){
+    	
+    	CurrentUser cu = new CurrentUser(person.getName().getGivenName(), partner_email, country, city, gender);
+    	CurrentUserManager.setCurrentUser(cu);
+    	
+    	WebServiceTask wst = new WebServiceTask(WebServiceTask.POST_TASK, this, "Verifying your info...");
+    	
+        wst.addNameValuePair("name", person.getName().getGivenName());
+        wst.addNameValuePair("city", city);
+        wst.addNameValuePair("country", country);
+        wst.addNameValuePair("partner_email", partner_email);
+        wst.addNameValuePair("gender", gender);
+        wst.addNameValuePair("email", email);
+ 
+        // the passed String is the URL we will POST to
+        wst.execute(new String[] { SERVICE_URL+"/register" });
     }
 }
