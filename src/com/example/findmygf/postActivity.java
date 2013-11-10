@@ -31,7 +31,6 @@ import com.google.android.gms.location.LocationRequest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -46,15 +45,14 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.location.*;
-import com.example.rest.*;
-public class postActivity extends FragmentActivity implements LocationListener, GooglePlayServicesClient.ConnectionCallbacks,
+import com.example.user.CurrentUserManager;
+public class PostActivity extends FragmentActivity implements LocationListener, GooglePlayServicesClient.ConnectionCallbacks,
 																	GooglePlayServicesClient.OnConnectionFailedListener {
 
 // A request to connect to Location Services
@@ -292,9 +290,9 @@ SharedPreferences.Editor mEditor;
             Location currentLocation = mLocationClient.getLastLocation();
 
             // Display the current location in the UI
-            mLatLng.setText(LocationUtils.getLatLng(this, currentLocation));
-            
-            postData("rufus", currentLocation.getLatitude(), currentLocation.getLongitude());
+            //mLatLng.setText(LocationUtils.getLatLng(this, currentLocation));
+            mLatLng.setText(CurrentUserManager.getCurrentUser().getPartner_email());
+            //postData("rufus", currentLocation.getLatitude(), currentLocation.getLongitude());
         }
     }
 
@@ -325,7 +323,7 @@ SharedPreferences.Editor mEditor;
             mActivityIndicator.setVisibility(View.VISIBLE);
 
             // Start the background task
-            (new postActivity.GetAddressTask(this)).execute(currentLocation);
+            (new PostActivity.GetAddressTask(this)).execute(currentLocation);
             retrieveSampleData();
         }
     }
@@ -646,9 +644,9 @@ SharedPreferences.Editor mEditor;
  
         String sampleURL = SERVICE_URL + "/sample";
  
-        WebServiceTask wst = new WebServiceTask(WebServiceTask.GET_TASK, this, "GETting data...");
+        //WebServiceTask wst = new WebServiceTask(WebServiceTask.GET_TASK, this, "GETting data...");
          
-        wst.execute(new String[] { sampleURL });
+//        wst.execute(new String[] { sampleURL });
          
     }
  
@@ -671,14 +669,14 @@ SharedPreferences.Editor mEditor;
         String latitude = Double.toString(myLatitude);
  
  
-        WebServiceTask wst = new WebServiceTask(WebServiceTask.POST_TASK, this, "Posting data...");
- 
-        wst.addNameValuePair("name", name);
-        wst.addNameValuePair("longitude", longitude);
-        wst.addNameValuePair("latitude", latitude);
- 
-        // the passed String is the URL we will POST to
-        wst.execute(new String[] { SERVICE_URL });
+//        WebServiceTask wst = new WebServiceTask(WebServiceTask.POST_TASK, this, "Posting data...");
+// 
+//        wst.addNameValuePair("name", name);
+//        wst.addNameValuePair("longitude", longitude);
+//        wst.addNameValuePair("latitude", latitude);
+// 
+//        // the passed String is the URL we will POST to
+//        wst.execute(new String[] { SERVICE_URL });
  
     }
  

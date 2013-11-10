@@ -189,13 +189,15 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f02001c;
     }
     public static final class id {
-        public static final int action_forgot_password=0x7f050024;
-        public static final int action_settings=0x7f050025;
+        public static final int action_forgot_password=0x7f05002a;
+        public static final int action_settings=0x7f05002b;
         public static final int address=0x7f05000e;
         public static final int address_progress=0x7f05000d;
         public static final int bn_clear=0x7f05001f;
         public static final int bn_post=0x7f05001e;
         public static final int bn_retrieve=0x7f05001d;
+        public static final int city=0x7f050023;
+        public static final int country=0x7f050022;
         public static final int email=0x7f05001c;
         public static final int first_name=0x7f05001a;
         public static final int get_address_button=0x7f050013;
@@ -205,12 +207,14 @@ containing a value of this type.
         public static final int label_lat_lng=0x7f05000a;
         public static final int last_name=0x7f05001b;
         public static final int lat_lng=0x7f05000b;
-        public static final int layers_spinner=0x7f050021;
+        public static final int layers_spinner=0x7f050027;
         public static final int main_layout=0x7f050009;
-        public static final int map=0x7f050020;
-        public static final int my_location=0x7f050023;
+        public static final int map=0x7f050026;
+        public static final int my_location=0x7f050029;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
+        public static final int partner_email=0x7f050021;
+        public static final int partner_not_found=0x7f050024;
         public static final int revoke_access_button=0x7f050017;
         public static final int satellite=0x7f050002;
         public static final int sign_in_button=0x7f050015;
@@ -219,10 +223,12 @@ containing a value of this type.
         public static final int start_updates=0x7f050012;
         public static final int stop_updates=0x7f050014;
         public static final int tableLayout1=0x7f050019;
+        public static final int tableLayout_register=0x7f050020;
         public static final int terrain=0x7f050003;
         public static final int text_connection_state=0x7f050010;
         public static final int text_connection_status=0x7f05000f;
-        public static final int traffic=0x7f050022;
+        public static final int traffic=0x7f050028;
+        public static final int try_again_button=0x7f050025;
         public static final int tv_message=0x7f050008;
         public static final int tv_message_label=0x7f050007;
         public static final int tv_reg_status=0x7f050005;
@@ -234,20 +240,24 @@ containing a value of this type.
         public static final int activity_login=0x7f030002;
         public static final int activity_main=0x7f030003;
         public static final int activity_post=0x7f030004;
-        public static final int layers_demo=0x7f030005;
+        public static final int activity_register=0x7f030005;
+        public static final int activity_wait_for_partner=0x7f030006;
+        public static final int layers_demo=0x7f030007;
     }
     public static final class menu {
         public static final int login=0x7f0a0000;
         public static final int main=0x7f0a0001;
+        public static final int register=0x7f0a0002;
+        public static final int wait_for_partner=0x7f0a0003;
     }
     public static final class string {
         public static final int IO_Exception_getFromLocation=0x7f060057;
-        public static final int action_forgot_password=0x7f060071;
+        public static final int action_forgot_password=0x7f060073;
         /**  Menu title 
          */
         public static final int action_settings=0x7f060028;
-        public static final int action_sign_in_register=0x7f06006f;
-        public static final int action_sign_in_short=0x7f060070;
+        public static final int action_sign_in_register=0x7f060071;
+        public static final int action_sign_in_short=0x7f060072;
         public static final int address=0x7f06004d;
         /**  Address format 
          */
@@ -368,10 +378,10 @@ containing a value of this type.
         public static final int default_status=0x7f06002b;
         public static final int disconnected=0x7f060051;
         public static final int email=0x7f06003f;
-        public static final int error_field_required=0x7f060076;
-        public static final int error_incorrect_password=0x7f060075;
-        public static final int error_invalid_email=0x7f060073;
-        public static final int error_invalid_password=0x7f060074;
+        public static final int error_field_required=0x7f060078;
+        public static final int error_incorrect_password=0x7f060077;
+        public static final int error_invalid_email=0x7f060075;
+        public static final int error_invalid_password=0x7f060076;
         public static final int firstName=0x7f06003d;
         public static final int get_address=0x7f060052;
         public static final int get_location=0x7f060053;
@@ -398,7 +408,7 @@ containing a value of this type.
         public static final int location_updated=0x7f060059;
         public static final int location_updates_stopped=0x7f06005d;
         public static final int log_new_location=0x7f06005e;
-        public static final int login_progress_signing_in=0x7f060072;
+        public static final int login_progress_signing_in=0x7f060074;
         public static final int map=0x7f06003c;
         public static final int map_not_ready=0x7f06003b;
         public static final int menu_settings=0x7f060043;
@@ -415,8 +425,8 @@ containing a value of this type.
         public static final int progress_message=0x7f06002a;
         /**  Strings related to login 
          */
-        public static final int prompt_email=0x7f06006d;
-        public static final int prompt_password=0x7f06006e;
+        public static final int prompt_email=0x7f06006f;
+        public static final int prompt_password=0x7f060070;
         public static final int register=0x7f060045;
         public static final int registry_status=0x7f060046;
         public static final int registry_status_result=0x7f060047;
@@ -432,8 +442,10 @@ containing a value of this type.
         public static final int start_updates=0x7f060068;
         public static final int stop_updates=0x7f060069;
         public static final int terrain=0x7f06003a;
-        public static final int title_activity_login=0x7f06006c;
+        public static final int title_activity_login=0x7f06006e;
         public static final int title_activity_main=0x7f060044;
+        public static final int title_activity_register=0x7f06006c;
+        public static final int title_activity_wait_for_partner=0x7f06006d;
         public static final int traffic=0x7f060035;
         public static final int unknown=0x7f06006a;
         public static final int unknown_activity_request_code=0x7f06006b;

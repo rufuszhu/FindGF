@@ -5,20 +5,44 @@ import com.google.android.maps.GeoPoint;
 public class CurrentUser {
 
 	private String name;
-	private String partner_name;
+	private String partner_email;
 	private String city;
 	private String country;
 	private GeoPoint location;
 	private String gender;
+	private String email;
+	private CurrentUser partner;
 	
-	public CurrentUser(String name, String partner_name, String country, String city, String gender){
+	public CurrentUser(String name, String email, String partner_email, String country, String city, String gender){
 		this.name =name;
 		this.city = city;
 		this.country = country;
-		this.partner_name = partner_name;
+		this.partner_email = partner_email;
 		this.gender = gender;
+		this.email = email;
+		this.location = null;
+		this.partner = null;
+	}
+	public CurrentUser getPartner() {
+		return partner;
+	}
+
+	public void setPartner(CurrentUser partner) {
+		this.partner = partner;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPartner_email(String partner_email) {
+		this.partner_email = partner_email;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -27,12 +51,8 @@ public class CurrentUser {
 		this.name = name;
 	}
 
-	public String getPartner_name() {
-		return partner_name;
-	}
-
-	public void setPartner_name(String partner_name) {
-		this.partner_name = partner_name;
+	public String getPartner_email() {
+		return partner_email;
 	}
 
 	public String getCity() {
@@ -66,11 +86,6 @@ public class CurrentUser {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	
 
-
-	
-	
 	
 }

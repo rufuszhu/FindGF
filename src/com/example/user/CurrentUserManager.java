@@ -10,6 +10,9 @@ public class CurrentUserManager {
 	public static void setCurrentUser(CurrentUser currentUser) {
 		CurrentUserManager.currentUser = currentUser;
 	}
+	
+
+
 
 	
 	
