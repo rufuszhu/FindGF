@@ -5,103 +5,84 @@
     android:layout_height="match_parent"
     android:shrinkColumns="*"
     android:stretchColumns="*" >
-    
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
- 
+
         <TextView
             style=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email" >
+            android:text="Your Email" >
         </TextView>
- 
+
         <EditText
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:layout_span="2" />
+            android:layout_span="2"
+            android:inputType="textEmailAddress" />
     </TableRow>
- 
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
- 
+
         <TextView
             style=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Partner's Email" >
+            android:text="Partner&apos;s Email" >
         </TextView>
- 
+
         <EditText
             android:id="@+id/partner_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:layout_span="2" />
+            android:layout_span="2"
+            android:inputType="textEmailAddress" />
     </TableRow>
- 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
- 
-        <TextView
-            style=""
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Country" >
-        </TextView>
- 
-        <EditText
-            android:id="@+id/country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:layout_span="2" />
-    </TableRow>
- 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
- 
-        <TextView
-            style=""
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="City" >
-        </TextView>
- 
-        <EditText
-            android:id="@+id/city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:layout_span="2" />
-    </TableRow>
-    
 
- 
+
+    <RadioGroup
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radioSex"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" 
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
- 
+
         <Button
             android:id="@+id/bn_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="postData"
-            android:text="@string/post" />
-         
+            android:text="Register" />
+
         <Button
             android:id="@+id/bn_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="clearControls"
             android:text="@string/clear" />
-         
     </TableRow>
- 
+
 </TableLayout>

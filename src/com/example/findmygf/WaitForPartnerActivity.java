@@ -44,9 +44,9 @@ public class WaitForPartnerActivity extends Activity implements OnClickListener 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wait_for_partner);
-		message = (TextView) findViewById(R.id.partner_not_found);
-		message.setText("Your partner with the email: \"" +
-   				CurrentUserManager.getCurrentUser().getPartner_email() +"\" has not register yet, please try to sign in again after your partner is registered");
+//		message = (TextView) findViewById(R.id.partner_not_found);
+//		message.setText(
+//   				CurrentUserManager.getCurrentUser().getPartner_email() +"\" has not register yet, please try again");
 		findViewById(R.id.try_again_button).setOnClickListener(this);
 	}
 
@@ -77,16 +77,23 @@ public class WaitForPartnerActivity extends Activity implements OnClickListener 
 	            JSONObject jso = new JSONObject(message);
 	             
 	            String name = jso.getString("name");
-	            String city = jso.getString("city");
-	            String country = jso.getString("country");
 	            String partner_email = jso.getString("partner_email");
 	            String gender = jso.getString("gender");
 	            String email = jso.getString("email");    
-	            
-	            CurrentUser cu = new CurrentUser(name,email,partner_email,country,city,gender);
-	            CurrentUserManager.getCurrentUser().setPartner(cu);
-	            Intent newActivity = new Intent(getApplicationContext(),
-						PostActivity.class);
+	            String photo = jso.getString("photo"); 
+	            String update_at = jso.getString("update_at");
+				double lat = Double.parseDouble(jso.getString("latitude"));
+				double lon = Double.parseDouble(jso.getString("longitude"));
+				
+				//System.out.println("handle response lat lon" + lat + " " + lon);
+				
+				CurrentUser p = new CurrentUser(name,email,partner_email,gender,photo,lat,lon,update_at);
+				CurrentUserManager.setPartner(p);
+//	            Intent newActivity = new Intent(getApplicationContext(),
+//						MapActivity.class);
+//				startActivity(newActivity);
+				Intent newActivity = new Intent(getApplicationContext(),
+						MapActivity.class);
 				startActivity(newActivity);
 	      	 } catch (Exception e) {
 	            Log.e(TAG, e.getLocalizedMessage(), e);

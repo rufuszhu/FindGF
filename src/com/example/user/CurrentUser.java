@@ -1,34 +1,45 @@
 package com.example.user;
 
-import com.google.android.maps.GeoPoint;
+import android.location.Location;
+
 
 public class CurrentUser {
 
 	private String name;
 	private String partner_email;
-	private String city;
-	private String country;
-	private GeoPoint location;
+	private Double latitude, longitude;
 	private String gender;
-	private String email;
-	private CurrentUser partner;
+	private String email, photo,update_at;
 	
-	public CurrentUser(String name, String email, String partner_email, String country, String city, String gender){
+	public CurrentUser(String name, String email, String partner_email, String gender, String photo, Double lat, Double lon, String update_at){
 		this.name =name;
-		this.city = city;
-		this.country = country;
 		this.partner_email = partner_email;
 		this.gender = gender;
 		this.email = email;
-		this.location = null;
-		this.partner = null;
+		this.latitude = 0.0;
+		this.longitude = 0.0;
+		this.photo = photo;
+		this.latitude = lat;
+		this.longitude = lon;
+		this.update_at = update_at;
 	}
-	public CurrentUser getPartner() {
-		return partner;
+	public Location getLocation(){
+		Location lo = new Location("a location");
+		lo.setLatitude(latitude);
+		lo.setLongitude(longitude);
+		return lo;
 	}
-
-	public void setPartner(CurrentUser partner) {
-		this.partner = partner;
+	public Double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
 	
 	public String getEmail() {
@@ -55,36 +66,24 @@ public class CurrentUser {
 		return partner_email;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public GeoPoint getLocation() {
-		return location;
-	}
-
-	public void setLocation(GeoPoint location) {
-		this.location = location;
-	}
-
 	public String getGender() {
 		return gender;
 	}
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	public String getUpdate_at() {
+		return update_at;
+	}
+	public void setUpdate_at(String update_at) {
+		this.update_at = update_at;
 	}
 
 	

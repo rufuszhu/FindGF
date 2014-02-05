@@ -34,11 +34,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class RegisterActivity extends Activity {
 	private static final String SERVICE_URL = "http://my-gf-server.appspot.com/resources/person";
 	private final String TAG = "RegisterActivity"; 
+	String gender = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,52 +59,54 @@ public class RegisterActivity extends Activity {
 
 		EditText edEmail = (EditText) findViewById(R.id.email);
 		EditText edPartnerEmail = (EditText) findViewById(R.id.partner_email);
-		EditText edCountry = (EditText) findViewById(R.id.country);
-		EditText edCity = (EditText) findViewById(R.id.city);
 
 		edEmail.setText("");
 		edPartnerEmail.setText("");
-		edCountry.setText("");
-		edCity.setText("");
+		gender = "";
 	}
 
 	public void postData(View vw) {
 
 		EditText edEmail = (EditText) findViewById(R.id.email);
 		EditText edPartnerEmail = (EditText) findViewById(R.id.partner_email);
-		EditText edCountry = (EditText) findViewById(R.id.country);
-		EditText edCity = (EditText) findViewById(R.id.city);
+		RadioGroup radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
 
 		String email = edEmail.getText().toString();
 		String partner_email = edPartnerEmail.getText().toString();
-		String country = edCountry.getText().toString();
-		String city = edCity.getText().toString();
+		
+		// get selected radio button from radioGroup
+		int selectedId = radioSexGroup.getCheckedRadioButtonId();
+		 
+		// find the radiobutton by returned id
+		RadioButton radioSexButton = (RadioButton) findViewById(selectedId);
+		gender = radioSexButton.getText().toString();
 
-		if (email.equals("") || partner_email.equals("") || country.equals("") ||city.equals("")) {
+		if (email.equals("") || partner_email.equals("") || gender.equals("")) {
 			Toast.makeText(this, "Please enter in all required fields.",
 					Toast.LENGTH_LONG).show();
 			return;
 		} 
 
 		WebServiceTask wst = new WebServiceTask(WebServiceTask.POST_TASK, this, "Posting data...");
-		
+
 		Intent intent = getIntent();
 		String userName = intent.getExtras().getString("user_name");
+		String photo = intent.getExtras().getString("photo_uri");
 		if(userName == null)
 			Toast.makeText(this, "username is null.",
 					Toast.LENGTH_LONG).show();
 		else {
-		System.out.println("User Name: " + userName);
-		wst.addNameValuePair("name", userName);
-		wst.addNameValuePair("email", email);
-		wst.addNameValuePair("partner_email", partner_email);
-		wst.addNameValuePair("country", country);
-		wst.addNameValuePair("city", city);
-		wst.addNameValuePair("gender", "male");
-		// the passed String is the URL we will POST to
-		wst.execute(new String[] { SERVICE_URL + "/register" });
+			CurrentUser cu = new CurrentUser(userName,email,partner_email,gender,photo,0.0,0.0,"");
+			CurrentUserManager.setCurrentUser(cu);
+			System.out.println("User Name: " + userName);
+			wst.addNameValuePair("name", userName);
+			wst.addNameValuePair("email", email);
+			wst.addNameValuePair("partner_email", partner_email);
+			wst.addNameValuePair("gender", gender);
+			wst.addNameValuePair("photo", photo);
+			// the passed String is the URL we will POST to
+			wst.execute(new String[] { SERVICE_URL + "/register" });
 		}
-
 	}
 
 	private void getPersonByEmail(String email)
@@ -114,63 +119,51 @@ public class RegisterActivity extends Activity {
 	public void handleResponse(String message) {
 
 		//person found
-		if(message.contains("partner_email")){
-			if(CurrentUserManager.getCurrentUser() == null)
-			{
+		if(message.contains("register")){
+			//this is finding the current user
 
-				try {
-					//store current user
-					JSONObject jso = new JSONObject(message);
+			Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_LONG).show();
+			getPersonByEmail(message.substring(8));
+		}
+		//this is find the cu's partner
+		else if(message.contains("kind"))
+		{
+			try {
 
-					String name = jso.getString("name");
-					String city = jso.getString("city");
-					String country = jso.getString("country");
-					String partner_email = jso.getString("partner_email");
-					String gender = jso.getString("gender");
-					String email = jso.getString("email");    
+				JSONObject jso = new JSONObject(message);
 
-					CurrentUser cu = new CurrentUser(name,email,partner_email,country,city,gender);
-					CurrentUserManager.setCurrentUser(cu);
-
-					Toast.makeText(RegisterActivity.this, "Register Successfully", Toast.LENGTH_LONG).show();
-					getPersonByEmail(partner_email);
-				} catch (Exception e) {
-					Log.e(TAG, e.getLocalizedMessage(), e);
-				}
-
-
-			}
-			else
-			{
-				try {
-
-					JSONObject jso = new JSONObject(message);
-
-					String name = jso.getString("name");
-					String city = jso.getString("city");
-					String country = jso.getString("country");
-					String partner_email = jso.getString("partner_email");
-					String gender = jso.getString("gender");
-					String email = jso.getString("email");    
-
-					CurrentUser cu = new CurrentUser(name,email,partner_email,country,city,gender);
-					CurrentUserManager.getCurrentUser().setPartner(cu);
-					Intent newActivity = new Intent(getApplicationContext(),
-							PostActivity.class);
-					startActivity(newActivity);
-				} catch (Exception e) {
-					Log.e(TAG, e.getLocalizedMessage(), e);
-				}
+				String name = jso.getString("name");
+				String partner_email = jso.getString("partner_email");
+				String gender = jso.getString("gender");
+				String email = jso.getString("email");   
+				String photo = jso.getString("photo");    
+				String update_at = jso.getString("update_at");
+				double lat = Double.parseDouble(jso.getString("latitude"));
+				double lon = Double.parseDouble(jso.getString("longitude"));
+				
+				//System.out.println("handle response lat lon" + lat + " " + lon);
+				
+				CurrentUser p = new CurrentUser(name,email,partner_email,gender,photo,lat,lon,update_at);
+				CurrentUserManager.setPartner(p);
+				Intent newActivity = new Intent(getApplicationContext(),
+						MapActivity.class);
+				startActivity(newActivity);
+			} catch (Exception e) {
+				Log.e(TAG, e.getLocalizedMessage(), e);
 			}
 		}
+
 		//Current user's partner not found 
-		else
+		else if(message.equals("") || message==null)
 		{
-
-
 			Intent newActivity = new Intent(getApplicationContext(),
 					WaitForPartnerActivity.class);
 			startActivity(newActivity);
+		}
+
+		else if(message.contains("Error"))
+		{
+			Toast.makeText(RegisterActivity.this, "getting this error: " + message, Toast.LENGTH_LONG).show();
 		}
 
 	}

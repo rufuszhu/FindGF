@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/p_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/p_photo"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:paddingRight="10dp"
+                android:paddingTop="4dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/p_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/p_photo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/p_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/p_name"
+                android:layout_toRightOf="@id/p_photo"
+                android:paddingTop="2dp" 
+                android:background="#4DFFFAFA"/>
+
+            <TextView
+                android:id="@+id/p_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/p_address"
+                android:layout_toRightOf="@id/p_photo"
+                android:paddingTop="2dp" 
+                android:background="#4DFFFAFA"/>
+            <Button
+            android:id="@+id/find_partner_btn"
+            android:layout_below="@id/p_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onGoToPartnerLocation" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/my_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/my_photo"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:paddingRight="10dp"
+                android:paddingTop="4dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/my_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/my_photo"
+                android:paddingRight="10dp"
+                android:textSize="18sp"
+                android:textStyle="bold" 
+                android:background="#4DFFFAFA"/>
+
+            <TextView
+                android:id="@+id/my_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/my_name"
+                android:layout_toRightOf="@id/my_photo"
+                android:paddingTop="2dp" 
+                android:background="#4DFFFAFA"/>
+         
+            <TextView
+                android:id="@+id/my_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/my_address"
+                android:layout_toRightOf="@id/my_photo"
+                android:paddingTop="2dp" 
+                android:background="#4DFFFAFA"/>            
+            <Button
+            android:id="@+id/find_me_btn"
+            android:layout_below="@id/my_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onGoToMyLocation"
+            android:text="Go to My Location" />
+        </RelativeLayout>
+    </LinearLayout>
+
+<!--     <LinearLayout -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" > -->
+
+<!--         <Button -->
+<!--             android:id="@+id/sydney" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_weight="0.5" -->
+<!--             android:onClick="onGoToPartnerLocation" -->
+<!--             android:text="Find My Girlfriend" /> -->
+
+<!--         <Button -->
+<!--             android:id="@+id/bondi" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_weight="0.5" -->
+<!--             android:onClick="onGoToMyLocation" -->
+<!--             android:text="Go to My Location" /> -->
+<!--     </LinearLayout> -->
+
+    <fragment
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        map:cameraTargetLat="0"
+        map:cameraTargetLng="0"
+        map:cameraZoom="0"
+        map:uiZoomControls="false" />
+
+</LinearLayout>

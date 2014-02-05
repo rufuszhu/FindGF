@@ -94,5 +94,21 @@
     <string name="unknown_activity_request_code">        Received an unknown activity request code %1$d in onActivityResult.</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_wait_for_partner">WaitForPartnerActivity</string>
-
+    <string name="up_arrow">\u2191</string>
+    <string name="stop_animation">\u25A0</string>
+    <string name="animate">Animate</string>
+    <string name="left_arrow">\u2190</string>
+    <string name="right_arrow">\u2192</string>
+    <string name="down_arrow">\u2193</string>
+    <string name="zoom_in">+</string>
+    <string name="zoom_out">-</string>
+    <string name="go_to_bondi">Go to Bondi</string>
+    <string name="go_to_sydney">Go to Sydney</string>
+    <string name="map_not_ready">Map is not ready yet</string>
+    <string name="title_activity_weather">WeatherActivity</string>
+    <string name="plus_generic_error">Sign in with Google is not available.</string>
+ <string name="unknown_person">Unknown</string>
+    <string name="signed_out_status">Signed out.</string>
+    <string name="revoke_access_status">Revoked access.</string>
+    <string name="revoke_access_error_status">Unable to revoke access.</string>
 </resources>
